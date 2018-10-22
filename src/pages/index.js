@@ -47,7 +47,7 @@ const IndexPage = () => (
     </Section>
     <Section variant="purple">
       <SubTitle variant="purple">Contact</SubTitle>
-      <NetlifyForm name="Contact Form">
+      <NetlifyForm name="Contact Form" honeypotName="bang">
         {({ loading, error, success }) => (
           <div>
             {loading &&
