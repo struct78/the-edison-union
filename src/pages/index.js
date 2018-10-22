@@ -22,18 +22,12 @@ const IndexPage = () => (
       unforgettable experiences with technology at their core.</Copy>
     </Section>
     <Section variant="blue">
-      <SubTitle variant="blue">Our Philosophy</SubTitle>
-      <Copy>Our technology should always support the idea.
-      The technology should be as invisible as possible.
-      Our solutions should always leave people wondering “How did they do that?”</Copy>
-    </Section>
-    <Section variant="grey_blue">
-      <SubTitle variant="grey_blue">What do we specialise in?</SubTitle>
+      <SubTitle variant="blue">What do we specialise in?</SubTitle>
       <Copy>We are not a traditional digital agency, or production house &mdash;
       we are conceptualists, technologists, and problem solvers.
       Our past work includes, but is not limited to:</Copy>
 
-      <List variant="grey_blue">
+      <List variant="blue">
         <ListItem>Data visualisation & sonification</ListItem>
         <ListItem>Electronic prototyping</ListItem>
         <ListItem>Experiential advertising</ListItem>
@@ -43,6 +37,12 @@ const IndexPage = () => (
         <ListItem>Light sculptures</ListItem>
         <ListItem>Projection mapping</ListItem>
       </List>
+    </Section>
+    <Section variant="grey_blue">
+      <SubTitle variant="grey_blue">Our Philosophy</SubTitle>
+      <Copy>Technology should always support the idea.
+      Technology should be as invisible as possible.
+      Our solutions should always leave people wondering “How did they do that?”</Copy>
     </Section>
     {/*<ImageGrid>
       <ImageBox>
@@ -103,16 +103,6 @@ const List = styled.ul`
 
   * + * {
     margin-top: ${spacing.sm};
-
-    &::before {
-      content: '';
-      width: 1.5rem;
-      border-bottom: 1px solid currentColor;
-      position: absolute;
-      top: -${spacing.xs};
-      left: 50%;
-      transform: translateX(-50%);
-    }
   }
 
   li::before {
@@ -122,6 +112,17 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   position: relative;
+  font-weight: 400;
+
+  &::before {
+    content: '';
+    border-bottom: 1px solid currentColor;
+    width: 1rem;
+    position: absolute;
+    top: 50%;
+    left: -${spacing.default};
+    bottom: -${spacing.xs};
+  }
 `
 
 const ImageGrid = styled.div`

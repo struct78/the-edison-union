@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colours, spacing } from '../styles/variables'
+import { above } from '../styles/mixins'
 
 const Section = ({ variant, children }) => (
   <SectionContainer variant={variant}>
@@ -12,12 +13,19 @@ const SectionContainer = styled.section`
   display: flex;
   width: 100vw;
   height: 100vh;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  text-align: center;
   padding: ${spacing.md};
   box-sizing: border-box;
+
+  ${above.md`
+    padding: ${spacing.md} ${spacing.xl};
+  `}
+
+  ${above.lg`
+    padding: ${spacing.md} ${spacing.xl};
+  `}
 
   ${props => {
     return `

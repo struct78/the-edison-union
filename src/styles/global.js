@@ -28,12 +28,11 @@ export const GlobalStyle = createGlobalStyle`
 
     &::after {
       content: '';
-      width: 1.5rem;
+      width: 3rem;
       border-bottom: 1px solid currentColor;
       position: absolute;
-      bottom: -1rem;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: -2rem;
+      left: 0;
     }
   }
 
