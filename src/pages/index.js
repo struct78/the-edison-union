@@ -59,23 +59,23 @@ class IndexPage extends Component {
     else {
       return (<FieldSet>
         <FieldGroup>
-          <label for="name">Name</label>
+          <label htmlFor="name">Name</label>
           <Input type="text" name="name" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
-          <label for="email">Email</label>
+          <label htmlFor="email">Email</label>
           <Input type="text" name="email" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
-          <label for="phone">Phone</label>
+          <label htmlFor="phone">Phone</label>
           <Input type="text" name="phone" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
-          <label for="phone">Company</label>
+          <label htmlFor="phone">Company</label>
           <Input type="text" name="company" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup className="field-group--full">
-          <label for="message">Tell us a story</label>
+          <label htmlFor="message">Tell us a story</label>
           <TextArea name="message" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
@@ -121,7 +121,7 @@ class IndexPage extends Component {
         </Section>
         <Section variant="purple">
           <SubTitle variant="purple">Contact</SubTitle>
-          <form action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
+          <form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
             <input type="hidden" name="form-name" value="Contact Form" />
             { this.getFormContent() }
           </form>
