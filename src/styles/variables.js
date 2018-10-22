@@ -1,28 +1,33 @@
 export const colours = {
   pink: {
-    background: '#FF3D7F',
-    title: '#efefef',
-    text: '#333'
+    background: '#FF6F84',
+    title: '#eee',
+    text: '#3E3C43'
   },
   blue: {
-    background: '#3FB8AF',
-    title: '#efefef',
-    text: '#363336'
+    background: '#96CEB4',
+    title: '#eee',
+    text: '#3E3C43'
+  },
+  purple: {
+    background: '#B659A6',
+    title: '#eee',
+    text: '#3E3C43'
   },
   grey_blue: {
-    background: '#efefef',
-    title: '#3FB8AF',
-    text: '#363336'
+    background: '#eee',
+    title: '#96CEB4',
+    text: '#3E3C43'
   },
   grey_pink: {
-    background: '#efefef',
-    title: '#FF3D7F',
-    text: '#333'
+    background: '#eee',
+    title: '#FF6F84',
+    text: '#3E3C43'
   },
   default: {
-    background: '#fff',
+    background: '#eee',
     title: '#000',
-    text: '#333'
+    text: '#3E3C43'
   }
 }
 

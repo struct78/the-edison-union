@@ -34,12 +34,11 @@ const IndexPage = () => (
       Our past work includes, but is not limited to:</Copy>
 
       <List variant="grey_blue">
-        <ListItem>Creative concept development</ListItem>
         <ListItem>Data visualisation & sonification</ListItem>
-        <ListItem>Digital store windows</ListItem>
         <ListItem>Electronic prototyping</ListItem>
         <ListItem>Experiential advertising</ListItem>
         <ListItem>Interactive installations</ListItem>
+        <ListItem>Interactive store windows</ListItem>
         <ListItem>IOT platforms</ListItem>
         <ListItem>Light sculptures</ListItem>
         <ListItem>Projection mapping</ListItem>
