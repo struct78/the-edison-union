@@ -24,18 +24,20 @@ class IndexPage extends Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  };
+  }
 
   handleSubmit = e => {
     e.preventDefault();
 
     const form = e.target;
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
       body: encode({
-        "form-name": form.getAttribute("name"),
+        'form-name': form.getAttribute('name'),
         ...this.state
       })
     })
@@ -45,7 +47,7 @@ class IndexPage extends Component {
     .catch(error => {
       this.setState({ sent: false, error: true })
     });
-  };
+  }
 
   getFormContent() {
     if (this.state.sent) {
@@ -58,23 +60,23 @@ class IndexPage extends Component {
       return (<FieldSet>
         <FieldGroup>
           <label for="name">Name</label>
-          <Input type="text" name="name" required />
+          <Input type="text" name="name" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
           <label for="email">Email</label>
-          <Input type="text" name="email" required />
+          <Input type="text" name="email" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
           <label for="phone">Phone</label>
-          <Input type="text" name="phone" required />
+          <Input type="text" name="phone" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
           <label for="phone">Company</label>
-          <Input type="text" name="company" required />
+          <Input type="text" name="company" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup className="field-group--full">
           <label for="message">Tell us a story</label>
-          <TextArea name="message" required />
+          <TextArea name="message" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
           <Button>Send Enquiry</Button>
