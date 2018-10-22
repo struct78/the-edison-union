@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "the-edison-union",
+  "description": "The Edison Union Website",
+  "version": "1.0.1",
+  "author": "David Johnson",
   "dependencies": {
     "gatsby": "^2.0.19",
     "gatsby-plugin-manifest": "^2.0.5",
@@ -12,6 +12,8 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
+    "react-lazyload": "^2.3.0",
+    "react-netlify-form": "^2.1.0",
     "styled-components": "^4.0.2"
   },
   "keywords": [

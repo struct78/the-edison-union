@@ -4,9 +4,6 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 // Styles
-
-//import styled, { injectGlobal } from "styled-components"
-//import * as variables from "../style/variables"
 import { GlobalStyle } from '../styles/global.js'
 
 // Components

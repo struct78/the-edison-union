@@ -10,14 +10,14 @@ const Section = ({ variant, children }) => (
 )
 
 const SectionContainer = styled.section`
-  display: flex;
-  width: 100vw;
-  height: 100vh;
   align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  padding: ${spacing.md};
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  padding: ${spacing.md};
+  width: 100vw;
 
   ${above.md`
     padding: ${spacing.md} ${spacing.xl};

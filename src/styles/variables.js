@@ -10,9 +10,10 @@ export const colours = {
     text: '#3E3C43'
   },
   purple: {
-    background: '#B659A6',
+    background: '#EDA0FF',
     title: '#eee',
-    text: '#3E3C43'
+    text: '#3E3C43',
+    button: '#F2BDFF'
   },
   grey_blue: {
     background: '#eee',
