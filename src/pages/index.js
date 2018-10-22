@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import NetlifyForm from 'react-netlify-form'
 
 // CSS
 import { colours, fonts, spacing, timings, typography } from '../styles/variables'
@@ -11,113 +10,150 @@ import { above } from '../styles/mixins'
 import Layout from '../components/layout'
 import Section from '../components/section'
 
-const IndexPage = () => (
-  <Layout>
-    <Section variant="pink">
-      <Title variant="pink">The Edison Union</Title>
-    </Section>
-    <Section variant="grey_pink">
-      <SubTitle variant="grey_pink">What is the Edison Union?</SubTitle>
-      <Copy>The Edison Union is a creative technology collective.
-      We work with architects, designers, clients, and customers to create
-      unforgettable experiences with technology at their core.</Copy>
-    </Section>
-    <Section variant="blue">
-      <SubTitle variant="blue">What do we specialise in?</SubTitle>
-      <Copy>We are not a traditional digital agency, or production house &mdash;
-      we are conceptualists, technologists, and problem solvers.
-      Our past work includes, but is not limited to:</Copy>
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
-      <List variant="blue">
-        <ListItem>Data visualisation & sonification</ListItem>
-        <ListItem>Electronic prototyping</ListItem>
-        <ListItem>Experiential advertising</ListItem>
-        <ListItem>Interactive installations</ListItem>
-        <ListItem>Interactive store windows</ListItem>
-        <ListItem>IOT platforms</ListItem>
-        <ListItem>Light sculptures</ListItem>
-        <ListItem>Projection mapping</ListItem>
-      </List>
-    </Section>
-    <Section variant="grey_blue">
-      <SubTitle variant="grey_blue">Our Philosophy</SubTitle>
-      <Copy>Technology should always support the idea.
-      Technology should be as invisible as possible.
-      Our solutions should always leave people wondering “How did they do that?”</Copy>
-    </Section>
-    <Section variant="purple">
-      <SubTitle variant="purple">Contact</SubTitle>
-      <NetlifyForm name="contact" honeypotName="bang">
-        {({ loading, error, success }) => (
-          <div>
-            {loading &&
-              <Copy>Loading...</Copy>
-            }
-            {error &&
-              <Copy>Your information was not sent. Please try again later.</Copy>
-            }
-            {success &&
-              <Copy>Thank you for contacting us!</Copy>
-            }
-            {!loading && !success &&
-              <FieldSet>
-                <FieldGroup>
-                  <label for="name">Name</label>
-                  <Input type="text" name="name" required />
-                </FieldGroup>
-                <FieldGroup>
-                  <label for="email">Email</label>
-                  <Input type="text" name="email" required />
-                </FieldGroup>
-                <FieldGroup>
-                  <label for="phone">Phone</label>
-                  <Input type="text" name="phone" required />
-                </FieldGroup>
-                <FieldGroup>
-                  <label for="phone">Company</label>
-                  <Input type="text" name="company" required />
-                </FieldGroup>
-                <FieldGroup className="field-group--full">
-                  <label for="message">Tell us a story</label>
-                  <TextArea name="message" required />
-                </FieldGroup>
-                <FieldGroup>
-                  <Button>Send Enquiry</Button>
-                </FieldGroup>
-              </FieldSet>
-            }
-          </div>
-        )}
-      </NetlifyForm>
-    </Section>
-    {/*<ImageGrid>
-      <ImageBox>
-        <img src="https://via.placeholder.com/1000x1000"/>
-      </ImageBox>
-      <ImageBox>
-        <img src="https://via.placeholder.com/1000x1000"/>
-      </ImageBox>
-      <ImageBox>
-        <img src="https://via.placeholder.com/1000x1000"/>
-      </ImageBox>
-      <ImageBox>
-        <img src="https://via.placeholder.com/1000x1000"/>
-      </ImageBox>
-      <ImageBox>
-        <img src="https://via.placeholder.com/1000x1000"/>
-      </ImageBox>
-      <ImageBox>
-        <img src="https://via.placeholder.com/1000x1000"/>
-      </ImageBox>
-      <ImageBox>
-        <img src="https://via.placeholder.com/1000x1000"/>
-      </ImageBox>
-      <ImageBox>
-        <img src="https://via.placeholder.com/1000x1000"/>
-      </ImageBox>
-    </ImageGrid>*/}
-  </Layout>
-)
+class IndexPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { };
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...this.state
+      })
+    })
+    .then(() => {
+      this.setState({ sent: true })
+    })
+    .catch(error => {
+      this.setState({ sent: false, error: true })
+    });
+  };
+
+  getFormContent() {
+    if (this.state.sent) {
+      return (<Copy>Thank you for contacting us!</Copy>);
+    }
+    else if (this.state.error) {
+      return (<Copy>Your information was not sent. Please try again later.</Copy>);
+    }
+    else {
+      return (<FieldSet>
+        <FieldGroup>
+          <label for="name">Name</label>
+          <Input type="text" name="name" required />
+        </FieldGroup>
+        <FieldGroup>
+          <label for="email">Email</label>
+          <Input type="text" name="email" required />
+        </FieldGroup>
+        <FieldGroup>
+          <label for="phone">Phone</label>
+          <Input type="text" name="phone" required />
+        </FieldGroup>
+        <FieldGroup>
+          <label for="phone">Company</label>
+          <Input type="text" name="company" required />
+        </FieldGroup>
+        <FieldGroup className="field-group--full">
+          <label for="message">Tell us a story</label>
+          <TextArea name="message" required />
+        </FieldGroup>
+        <FieldGroup>
+          <Button>Send Enquiry</Button>
+        </FieldGroup>
+      </FieldSet>);
+    }
+  }
+
+  render() {
+    return (<Layout>
+        <Section variant="pink">
+          <Title variant="pink">The Edison Union</Title>
+        </Section>
+        <Section variant="grey_pink">
+          <SubTitle variant="grey_pink">What is the Edison Union?</SubTitle>
+          <Copy>The Edison Union is a creative technology collective.
+          We work with architects, designers, clients, and customers to create
+          unforgettable experiences with technology at their core.</Copy>
+        </Section>
+        <Section variant="blue">
+          <SubTitle variant="blue">What do we specialise in?</SubTitle>
+          <Copy>We are not a traditional digital agency, or production house &mdash;
+          we are conceptualists, technologists, and problem solvers.
+          Our past work includes, but is not limited to:</Copy>
+
+          <List variant="blue">
+            <ListItem>Data visualisation & sonification</ListItem>
+            <ListItem>Electronic prototyping</ListItem>
+            <ListItem>Experiential advertising</ListItem>
+            <ListItem>Interactive installations</ListItem>
+            <ListItem>Interactive store windows</ListItem>
+            <ListItem>IOT platforms</ListItem>
+            <ListItem>Light sculptures</ListItem>
+            <ListItem>Projection mapping</ListItem>
+          </List>
+        </Section>
+        <Section variant="grey_blue">
+          <SubTitle variant="grey_blue">Our Philosophy</SubTitle>
+          <Copy>Technology should always support the idea.
+          Technology should be as invisible as possible.
+          Our solutions should always leave people wondering “How did they do that?”</Copy>
+        </Section>
+        <Section variant="purple">
+          <SubTitle variant="purple">Contact</SubTitle>
+          <form action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
+            <input type="hidden" name="form-name" value="Contact Form" />
+            { this.getFormContent() }
+          </form>
+        </Section>
+        {/*<ImageGrid>
+          <ImageBox>
+            <img src="https://via.placeholder.com/1000x1000"/>
+          </ImageBox>
+          <ImageBox>
+            <img src="https://via.placeholder.com/1000x1000"/>
+          </ImageBox>
+          <ImageBox>
+            <img src="https://via.placeholder.com/1000x1000"/>
+          </ImageBox>
+          <ImageBox>
+            <img src="https://via.placeholder.com/1000x1000"/>
+          </ImageBox>
+          <ImageBox>
+            <img src="https://via.placeholder.com/1000x1000"/>
+          </ImageBox>
+          <ImageBox>
+            <img src="https://via.placeholder.com/1000x1000"/>
+          </ImageBox>
+          <ImageBox>
+            <img src="https://via.placeholder.com/1000x1000"/>
+          </ImageBox>
+          <ImageBox>
+            <img src="https://via.placeholder.com/1000x1000"/>
+          </ImageBox>
+        </ImageGrid>*/}
+      </Layout>
+    )
+  }
+}
 
 const Title = styled.h1`
   color: ${props => colours[props.variant].title};
