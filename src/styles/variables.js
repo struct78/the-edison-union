@@ -52,6 +52,6 @@ export const typography = {
 }
 
 export const fonts = {
-  title: "'Rajdhani', sans-serif",
+  title: 'Rajdhani, sans-serif',
   body: "'Roboto Slab', serif"
 }

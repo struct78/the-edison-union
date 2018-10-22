@@ -98,26 +98,26 @@ const Copy = styled.p`
 
 const List = styled.ul`
   position: relative;
-  margin: ${spacing.md} 0 0;
+  margin: ${spacing.sm} 0 0;
   line-height: 1.8;
   column-gap: ${spacing.md};
 
-  &::before {
-    content: '';
-    width: 1.5rem;
-    border-bottom: 1px solid ${props => colours[props.variant].title};
-    position: absolute;
-    top: -${spacing.md};
-    left: 50%;
-    transform: translateX(-50%);
+  * + * {
+    margin-top: ${spacing.sm};
+
+    &::before {
+      content: '';
+      width: 1.5rem;
+      border-bottom: 1px solid currentColor;
+      position: absolute;
+      top: -${spacing.xs};
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   li::before {
     color: ${props => colours[props.variant].title};
-  }
-
-  li:nth-child(2n) {
-    font-weight: 400;
   }
 `
 
