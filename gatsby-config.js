@@ -18,8 +18,8 @@ module.exports = {
         name: 'edison-union',
         short_name: 'starter',
         start_url: '/',
-        background_color: '#CD3554',
-        theme_color: '#CD3554',
+        background_color: '#FF6F84',
+        theme_color: '#FF6F84',
         display: 'minimal-ui'
       },
     },
