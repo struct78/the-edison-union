@@ -15,6 +15,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    font-display: auto;
     font-family: ${fonts.body};
     font-size: ${typography.body};
     font-weight: 300;
@@ -43,5 +44,14 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 0;
     margin-top: 0;
     padding-left: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, li, label, button, input, textarea {
+    opacity: 0.1;
+    transition: opacity ${timings.lg}s ease-in-out;
+
+    .wf-active & {
+      opacity: 1;
+    }
   }
 `
