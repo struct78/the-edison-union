@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'The Edison Union',
+    company: 'The Edison Union',
+    title: 'The Edison Union + Creative Technology Collective',
     siteUrl: 'https://edisonunion.co',
     description: 'A creative technology collective based in Melbourne, Australia',
     keywords: 'Creative Technology, VR, AR, IOT, Interactive windows, Projection Mapping, Processing, Touchdesigner, Data Visualisation, Data Sonification, Light Sculptures'

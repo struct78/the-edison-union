@@ -15,7 +15,10 @@ const Layout = ({ children }) => (
         site {
           siteMetadata {
             title,
-            description
+            company,
+            description,
+            siteUrl,
+            keywords
           }
         }
       }
@@ -27,6 +30,21 @@ const Layout = ({ children }) => (
           meta={[
             { name: 'description', content: data.site.siteMetadata.description },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
+            { itemprop: "image", content: `${data.site.siteMetadata.siteUrl}/images/og-image.png` },
+            { name: "twitter:card", content: "summary_large_image" },
+            { name: "twitter:title", content: data.site.siteMetadata.title },
+            { name: "twitter:description", content: data.site.siteMetadata.description },
+            { name: "twitter:image:src", content: `${data.site.siteUrl}/images/og-image.png` },
+            { property: "og:title", content: data.site.siteMetadata.title },
+            { property: "og:type", content: "website" },
+            { property: "og:url", content: `${data.site.siteMetadata.siteUrl}`},
+            { property: "og:image", content: `${data.site.siteUrl}/images/og-image.png` },
+            { property: "og:image:secure_url", content: `${data.site.siteUrl}/images/og-image.png` },
+            { property: "og:image:type", content: "image/png" },
+            { property: "og:image:width", content: "1200" },
+            { property: "og:image:height", content: "630" },
+            { property: "og:description", content: data.site.siteMetadata.description },
+            { property: "og:site_name", content: data.site.siteMetadata.company },
           ]}
         >
           <html lang="en" />
