@@ -187,6 +187,15 @@ const List = styled.ul`
 
   * + * {
     margin-top: ${spacing.sm};
+
+    &::before {
+      border-bottom: 1px solid currentColor;
+      top: -${spacing.xs};
+      content: '';
+      left: 0;
+      position: absolute;
+      width: 1rem;
+    }
   }
 
   li::before {
@@ -197,16 +206,6 @@ const List = styled.ul`
 const ListItem = styled.li`
   font-weight: 400;
   position: relative;
-
-  &::before {
-    border-bottom: 1px solid currentColor;
-    bottom: -${spacing.xs};
-    content: '';
-    left: -${spacing.default};
-    position: absolute;
-    top: 50%;
-    width: 1rem;
-  }
 `
 
 const ImageGrid = styled.div`
