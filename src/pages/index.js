@@ -112,7 +112,6 @@ class IndexPage extends Component {
             <ListItem>Interactive installations</ListItem>
             <ListItem>IOT platforms</ListItem>
             <ListItem>Light sculptures</ListItem>
-            <ListItem>Office automation</ListItem>
             <ListItem>Projection mapping</ListItem>
             <ListItem>VX & Chatbots</ListItem>
           </List>
