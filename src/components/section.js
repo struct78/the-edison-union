@@ -14,17 +14,13 @@ const SectionContainer = styled.section`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   padding: ${spacing.md};
   width: 100vw;
 
   ${above.md`
-    padding: ${spacing.md} ${spacing.xl};
-  `}
-
-  ${above.lg`
-    padding: ${spacing.md} ${spacing.xl};
+    padding: ${spacing.lg} ${spacing.xl};
   `}
 
   ${props => {

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 // CSS
 import { colours, fonts, spacing, timings, typography } from '../styles/variables'
-import { above } from '../styles/mixins'
+import { below, above } from '../styles/mixins'
 
 // Components
 import Layout from '../components/layout'
@@ -75,7 +75,7 @@ class IndexPage extends Component {
           <Input type="text" name="company" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup className="field-group--full">
-          <label htmlFor="message">Tell us a story</label>
+          <label htmlFor="message">Give us a problem to solve</label>
           <TextArea name="message" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
@@ -98,33 +98,35 @@ class IndexPage extends Component {
         </Section>
         <Section variant="blue">
           <SubTitle variant="blue">What do we specialise in?</SubTitle>
-          <Copy>We are not a traditional digital agency, or production house &mdash;
+          <Copy>We are not a traditional digital agency or production house &mdash;
           we are conceptualists, technologists, and problem solvers.
-          Our past work includes, but is not limited to:</Copy>
+          We have been known to make a few things, though. Our services include:</Copy>
 
           <List variant="blue">
+            <ListItem>API development</ListItem>
+            <ListItem>Augmented Reality</ListItem>
             <ListItem>Data visualisation & sonification</ListItem>
+            <ListItem>Digital windows</ListItem>
             <ListItem>Electronic prototyping</ListItem>
-            <ListItem>Experiential advertising</ListItem>
+            <ListItem>Experiential &amp; OOH advertising</ListItem>
             <ListItem>Interactive installations</ListItem>
-            <ListItem>Interactive store windows</ListItem>
             <ListItem>IOT platforms</ListItem>
             <ListItem>Light sculptures</ListItem>
+            <ListItem>Office automation</ListItem>
             <ListItem>Projection mapping</ListItem>
+            <ListItem>VX & Chatbots</ListItem>
           </List>
         </Section>
         <Section variant="grey_blue">
           <SubTitle variant="grey_blue">Our Philosophy</SubTitle>
-          <Copy>Technology should always support the idea.
-          Technology should be as invisible as possible.
-          Our solutions should always leave people wondering “How did they do that?”</Copy>
+          <Copy>We love technology, but we believe it should always come second to the idea. We are creatives first, engineers second.</Copy>
         </Section>
         <Section variant="purple">
           <SubTitle variant="purple">Contact</SubTitle>
-          <form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
+          <Form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
             <input type="hidden" name="form-name" value="Contact Form" />
             { this.getFormContent() }
-          </form>
+          </Form>
         </Section>
         {/*<ImageGrid>
           <ImageBox>
@@ -236,12 +238,25 @@ const ImageBox = styled.div`
   }
 `
 
+const Form = styled.form`
+  display: flex;
+  width: 100%;
+
+  ${above.md`
+    width: 50%;
+  `}
+`
+
 const FieldSet = styled.div`
-  display: grid;
-  grid-gap: ${spacing.md};
-  grid-row-gap: ${spacing.sm};
-  grid-template-columns: repeat(2, 1fr);
   margin-top: ${spacing.md};
+  width: 100%;
+
+  ${above.sm`
+    display: grid;
+    grid-gap: ${spacing.md};
+    grid-row-gap: ${spacing.sm};
+    grid-template-columns: repeat(2, 1fr);
+  `}
 `
 
 const FieldGroup = styled.div`
@@ -258,6 +273,10 @@ const FieldGroup = styled.div`
     border: 1px solid ${colours.purple.text};
     outline: none;
   }
+
+  ${below.sm`
+    margin-top: ${spacing.md};
+  `}
 `
 
 const Input = styled.input`
