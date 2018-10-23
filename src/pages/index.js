@@ -93,14 +93,13 @@ class IndexPage extends Component {
         <Section variant="default">
           <SubTitle variant="default">What is the Edison Union?</SubTitle>
           <Copy>The Edison Union is a creative technology collective.
-          We work with architects, designers, clients, and customers to create
-          unforgettable experiences with technology at their core.</Copy>
+          We create unforgettable experiences with technology at their core.</Copy>
         </Section>
         <Section variant="default_alternate">
           <SubTitle variant="default_alternate">What do we specialise in?</SubTitle>
           <Copy>We are not a traditional digital agency or production house &mdash;
-          we are conceptualists, technologists, and problem solvers.
-          We have been known to make a few things, though. Our services include:</Copy>
+          we are conceptual thinkers, technologists, and problem solvers.
+          Some of our past and present projects include:</Copy>
 
           <List variant="default_alternate">
             <ListItem>API development</ListItem>
