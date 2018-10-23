@@ -14,11 +14,15 @@ const Layout = ({ children }) => (
       query SiteTitleQuery {
         site {
           siteMetadata {
+            name,
             title,
-            company,
             description,
             siteUrl,
-            keywords
+            keywords,
+            google_site_verification,
+            og {
+              image
+            }
           }
         }
       }
@@ -30,26 +34,26 @@ const Layout = ({ children }) => (
           meta={[
             { name: 'description', content: data.site.siteMetadata.description },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
-            { itemprop: "image", content: `${data.site.siteMetadata.siteUrl}/images/og-image.png` },
+            { itemprop: "image", content: data.site.siteMetadata.og.image },
             { name: "twitter:card", content: "summary_large_image" },
             { name: "twitter:title", content: data.site.siteMetadata.title },
             { name: "twitter:description", content: data.site.siteMetadata.description },
-            { name: "twitter:image:src", content: `${data.site.siteUrl}/images/og-image.png` },
+            { name: "twitter:image:src", content: data.site.siteMetadata.og.image },
             { property: "og:title", content: data.site.siteMetadata.title },
             { property: "og:type", content: "website" },
             { property: "og:url", content: `${data.site.siteMetadata.siteUrl}`},
-            { property: "og:image", content: `${data.site.siteUrl}/images/og-image.png` },
-            { property: "og:image:secure_url", content: `${data.site.siteUrl}/images/og-image.png` },
+            { property: "og:image", content: data.site.siteMetadata.og.image },
+            { property: "og:image:secure_url", content: data.site.siteMetadata.og.image },
             { property: "og:image:type", content: "image/png" },
             { property: "og:image:width", content: "1200" },
             { property: "og:image:height", content: "630" },
             { property: "og:description", content: data.site.siteMetadata.description },
-            { property: "og:site_name", content: data.site.siteMetadata.company },
+            { property: "og:site_name", content: data.site.siteMetadata.name },
+            { name: "google-site-verification", content: data.site.siteMetadata.google_site_verification }
           ]}
         >
           <html lang="en" />
           <link href="https://fonts.googleapis.com/css?family=Rajdhani:100,400|Roboto+Slab:100,200,300,400" rel="stylesheet"/>
-          <meta name="google-site-verification" content="MJDFKPslztppagIFWP9KbeVemhd_jI70eeatBQ3-bRo" />
         </Helmet>
         <GlobalStyle/>
         <div>
