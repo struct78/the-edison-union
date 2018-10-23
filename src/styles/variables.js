@@ -12,8 +12,7 @@ export const colours = {
   purple: {
     background: '#EDA0FF',
     title: '#eee',
-    text: '#3E3C43',
-    button: '#F2BDFF'
+    text: '#3E3C43'
   },
   grey_blue: {
     background: '#eee',
@@ -27,8 +26,14 @@ export const colours = {
   },
   default: {
     background: '#eee',
-    title: '#000',
+    title: '#1a1a1d',
     text: '#3E3C43'
+  },
+  default_alternate: {
+    background: '#1a1a1d',
+    title: '#eee',
+    text: '#ddd',
+    button: '#3a3a3d'
   }
 }
 

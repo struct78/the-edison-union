@@ -87,22 +87,22 @@ class IndexPage extends Component {
 
   render() {
     return (<Layout>
-        <Section variant="pink">
-          <Title variant="pink">The Edison Union</Title>
+        <Section variant="default_alternate">
+          <Title variant="default_alternate">The Edison Union</Title>
         </Section>
-        <Section variant="grey_pink">
-          <SubTitle variant="grey_pink">What is the Edison Union?</SubTitle>
+        <Section variant="default">
+          <SubTitle variant="default">What is the Edison Union?</SubTitle>
           <Copy>The Edison Union is a creative technology collective.
           We work with architects, designers, clients, and customers to create
           unforgettable experiences with technology at their core.</Copy>
         </Section>
-        <Section variant="blue">
-          <SubTitle variant="blue">What do we specialise in?</SubTitle>
+        <Section variant="default_alternate">
+          <SubTitle variant="default_alternate">What do we specialise in?</SubTitle>
           <Copy>We are not a traditional digital agency or production house &mdash;
           we are conceptualists, technologists, and problem solvers.
           We have been known to make a few things, though. Our services include:</Copy>
 
-          <List variant="blue">
+          <List variant="default_alternate">
             <ListItem>API development</ListItem>
             <ListItem>Augmented Reality</ListItem>
             <ListItem>Data visualisation & sonification</ListItem>
@@ -116,12 +116,12 @@ class IndexPage extends Component {
             <ListItem>VX & Chatbots</ListItem>
           </List>
         </Section>
-        <Section variant="grey_blue">
-          <SubTitle variant="grey_blue">Our Philosophy</SubTitle>
+        <Section variant="default">
+          <SubTitle variant="default">Our Philosophy</SubTitle>
           <Copy>We love technology, but we believe it should always come second to the idea. We are creatives first, engineers second.</Copy>
         </Section>
-        <Section variant="purple">
-          <SubTitle variant="purple">Contact</SubTitle>
+        <Section variant="default_alternate">
+          <SubTitle variant="default_alternate">Contact</SubTitle>
           <Form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
             <input type="hidden" name="form-name" value="Contact Form" />
             { this.getFormContent() }
@@ -266,10 +266,20 @@ const FieldGroup = styled.div`
     grid-column: 1 / 3;
   }
 
+  label {
+    margin-bottom: ${spacing.xs};
+  }
+
+  input,
+  textarea,
+  button {
+    transition: all ${timings.md}s ease-in-out;
+  }
+
   input:focus,
   textarea:focus,
   button: focus {
-    border: 1px solid ${colours.purple.text};
+    border: 1px solid ${colours.default.text};
     outline: none;
   }
 
@@ -290,17 +300,18 @@ const TextArea = styled.textarea`
 `
 
 const Button = styled.button`
-  background-color: ${colours.purple.button};
+  background-color: ${colours.default_alternate.button};
   border: 0;
   border: 1px solid transparent;
-  color: ${colours.purple.text};
+  color: ${colours.default_alternate.text};
   cursor: se-resize;
   margin-top: ${spacing.sm};
   padding: ${spacing.sm};
   transition: all ${timings.md}s ease-in-out;
 
   &:hover {
-    background-color: ${colours.purple.title};
+    background-color: ${colours.default_alternate.text};
+    color: ${colours.default_alternate.button};
   }
 `
 
