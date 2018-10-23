@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
     font-family: ${fonts.body};
     letter-spacing: .05rem;
     font-size: ${typography.body};
