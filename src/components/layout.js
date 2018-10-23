@@ -49,6 +49,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
           <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:100,400|Rajdhani:100,400|Roboto+Slab:100,200,300,400" rel="stylesheet"/>
+          <meta name="google-site-verification" content="MJDFKPslztppagIFWP9KbeVemhd_jI70eeatBQ3-bRo" />
         </Helmet>
         <GlobalStyle/>
         <div>
