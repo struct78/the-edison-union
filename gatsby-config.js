@@ -24,6 +24,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    `gatsby-plugin-styled-components`
+    'gatsby-plugin-styled-components',
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-127969191-1',
+        head: true,
+        cookieDomain: "edisonunion.co"
+      }
+    },
   ],
 }
