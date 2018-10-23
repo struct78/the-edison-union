@@ -59,24 +59,24 @@ class IndexPage extends Component {
     else {
       return (<FieldSet>
         <FieldGroup>
-          <label htmlFor="name">Name</label>
-          <Input type="text" name="name" required onChange={this.handleChange} />
+          <label htmlFor="name" id="message-name">Name</label>
+          <Input type="text" id="name" aria-labelledby="message-name" name="name" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
-          <label htmlFor="email">Email</label>
-          <Input type="text" name="email" required onChange={this.handleChange} />
+          <label htmlFor="email" id="message-email">Email</label>
+          <Input type="text" id="email" aria-labelledby="message-email" name="email" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
-          <label htmlFor="phone">Phone</label>
-          <Input type="text" name="phone" required onChange={this.handleChange} />
+          <label htmlFor="phone" id="message-phone">Phone</label>
+          <Input type="text" id="phone" aria-labelledby="message-phone" name="phone" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
-          <label htmlFor="phone">Company</label>
-          <Input type="text" name="company" required onChange={this.handleChange} />
+          <label htmlFor="company" id="message-company">Company</label>
+          <Input type="text" id="company" aria-labelledby="message-company" name="company" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup className="field-group--full">
-          <label htmlFor="message">Give us a problem to solve</label>
-          <TextArea name="message" required onChange={this.handleChange} />
+          <label htmlFor="message" id="message-label">Give us a problem to solve</label>
+          <TextArea id="message" aria-labelledby="message-label" name="message" required onChange={this.handleChange} />
         </FieldGroup>
         <FieldGroup>
           <Button>Send Enquiry</Button>
