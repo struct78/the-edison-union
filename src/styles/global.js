@@ -46,7 +46,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6, p, li, label, button, input, textarea {
-    opacity: 0.1;
+    opacity: 0;
     transition: opacity ${timings.lg}s ease-in-out;
 
     .wf-active & {
