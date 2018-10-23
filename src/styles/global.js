@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    font-display: auto;
     font-family: ${fonts.body};
     font-size: ${typography.body};
     font-weight: 300;
