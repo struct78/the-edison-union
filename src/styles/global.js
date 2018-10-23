@@ -16,24 +16,25 @@ export const GlobalStyle = createGlobalStyle`
   body {
     -ms-overflow-style: -ms-autohiding-scrollbar;
     font-family: ${fonts.body};
-    letter-spacing: .05rem;
     font-size: ${typography.body};
     font-weight: 300;
+    letter-spacing: .05rem;
     line-height: 1.8;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    position: relative;
-    margin: 0 0 2rem;
     line-height: 1.2;
+    margin: 0 0 2rem;
+    position: relative;
 
     &::after {
-      content: '';
-      width: 3rem;
       border-bottom: 1px solid currentColor;
-      position: absolute;
       bottom: -2rem;
+      content: '';
       left: 0;
+      position: absolute;
+      width: 3rem;
     }
   }
 
