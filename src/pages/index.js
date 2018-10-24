@@ -119,9 +119,11 @@ class IndexPage extends Component {
         </Section>
         <Section variant="default_alternate">
           <SubTitle variant="default_alternate">Contact</SubTitle>
-          <Form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
-            { this.getFormContent() }
-          </Form>
+          <FormContainer>
+            <form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
+              { this.getFormContent() }
+            </form>
+          </FormContainer>
         </Section>
         {/*<ImageGrid>
           <ImageBox>
@@ -232,13 +234,17 @@ const ImageBox = styled.div`
   }
 `
 
-const Form = styled.form`
+const FormContainer = styled.div`
   display: flex;
   width: 100%;
 
   ${above.md`
     width: 50%;
   `}
+
+  form {
+    width: 100%;
+  }
 `
 
 const FieldSet = styled.div`
