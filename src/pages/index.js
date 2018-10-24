@@ -103,12 +103,11 @@ class IndexPage extends Component {
 
           <List variant="default_alternate">
             <ListItem>API development</ListItem>
-            <ListItem>Augmented Reality</ListItem>
+            <ListItem>Data jewellery</ListItem>
             <ListItem>Data visualisation & sonification</ListItem>
-            <ListItem>Digital windows</ListItem>
             <ListItem>Electronic prototyping</ListItem>
             <ListItem>Experiential &amp; OOH advertising</ListItem>
-            <ListItem>Interactive installations</ListItem>
+            <ListItem>Interactive windows &ampl installations</ListItem>
             <ListItem>IOT platforms</ListItem>
             <ListItem>Light sculptures</ListItem>
             <ListItem>Projection mapping</ListItem>
