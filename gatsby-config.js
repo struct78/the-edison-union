@@ -33,5 +33,6 @@ module.exports = {
         cookieDomain: "edisonunion.co"
       }
     },
+    'gatsby-plugin-netlify',
   ],
 }
