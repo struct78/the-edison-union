@@ -121,7 +121,6 @@ class IndexPage extends Component {
           <SubTitle variant="default_alternate">Contact</SubTitle>
           <FormContainer>
             <form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
-              <input type="hidden" name="form-name" value="Contact Form" />
               { this.getFormContent() }
             </form>
           </FormContainer>
