@@ -98,7 +98,7 @@ const ImageBox = styled.div`
       }
 
       img {
-        transform: scale(1.2);
+        transform: scale(1.2) rotate(-4deg);
       }
     }
   }
