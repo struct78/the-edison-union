@@ -13,6 +13,15 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'static/images',
+        path: path.join(__dirname, 'static', 'images'),
+      },
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -35,15 +44,6 @@ module.exports = {
         cookieDomain: "edisonunion.co"
       }
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'static/images',
-        path: path.join(__dirname, 'static', 'images'),
-      },
-    },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-netlify',
   ],
 }

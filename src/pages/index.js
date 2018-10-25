@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import Img from "gatsby-image"
-import { StaticQuery, graphql } from 'gatsby'
+import Work from '../components/work'
 
 // CSS
 import { colours, fonts, spacing, timings, typography } from '../styles/variables'
@@ -11,6 +10,12 @@ import { below, above } from '../styles/mixins'
 // Components
 import Layout from '../components/layout'
 import Section from '../components/section'
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 export const workImage = graphql`
 fragment workImage on File {
@@ -36,11 +41,6 @@ export const query = graphql`
   }
 `
 
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-}
 
 class IndexPage extends Component {
   constructor(props) {
@@ -112,9 +112,7 @@ class IndexPage extends Component {
   }
 
   render() {
-    return (<StaticQuery
-      query={query}
-      render={(data) => (
+    return (
         <Layout>
           <Section variant="default_alternate">
             <Title variant="default_alternate">The Edison Union</Title>
@@ -144,35 +142,7 @@ class IndexPage extends Component {
               <ListItem>VX & Chatbots</ListItem>
             </List>
           </Section>
-          <ImageGrid>
-            <ImageBox>
-              <figure>
-                <Img fluid={data.vivienne.childImageSharp.fluid}/>
-                <figcaption>
-                  <strong>Vivienne</strong>
-                  <span>Sound visualisation</span>
-                </figcaption>
-              </figure>
-            </ImageBox>
-            <ImageBox>
-              <figure>
-                <Img fluid={data.faultTrace.childImageSharp.fluid}/>
-                <figcaption>
-                  <strong>Fault Trace</strong>
-                  <span>Data sonification</span>
-                </figcaption>
-              </figure>
-            </ImageBox>
-            <ImageBox>
-              <figure>
-                <Img fluid={data.hemeshGUI.childImageSharp.fluid}/>
-                <figcaption>
-                  <strong>Hemesh GUI</strong>
-                  <span>Software</span>
-                </figcaption>
-              </figure>
-            </ImageBox>
-          </ImageGrid>
+          <Work {...this.props}/>
           <Section variant="default">
             <SubTitle variant="default">Our Philosophy</SubTitle>
             <Copy>We love technology, but we believe it should always come second to the idea. We are creatives first, engineers second.</Copy>
@@ -183,7 +153,7 @@ class IndexPage extends Component {
               { this.getFormContent() }
             </Form>
           </Section>
-        </Layout>)}/>
+        </Layout>
     );
   }
 }
@@ -237,71 +207,6 @@ const List = styled.ul`
 const ListItem = styled.li`
   font-weight: 400;
   position: relative;
-`
-
-const ImageGrid = styled.section`
-  display: grid;
-  grid-gap: 1px;
-  grid-row-gap: 0;
-  grid-template-columns: repeat(1, 1fr);
-  line-height: 1;
-
-  ${above.sm`
-    grid-template-columns: repeat(3, 1fr);
-  `}
-
-`
-
-const ImageBox = styled.div`
-  figure {
-    position: relative;
-    width: 100%;
-    height: auto;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      transition: transform ${timings.lg}s ease-in-out !important;
-    }
-
-    figcaption {
-      align-items: center;
-      color: ${colours.work.text};
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      justify-content: center;
-      left: 0;
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      transform: translateY(${spacing.sm});
-      transition: opacity ${timings.lg}s ease-in-out, transform ${timings.lg}s ease-in-out;
-      width: 100%;
-
-      span {
-        margin-top: ${spacing.xs};
-        font-size: 1rem;
-      }
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      figcaption {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      img {
-        transform: scale(1.2);
-      }
-    }
-  }
 `
 
 const Form = styled.form`
