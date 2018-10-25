@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     name: 'The Edison Union',
@@ -33,6 +35,15 @@ module.exports = {
         cookieDomain: "edisonunion.co"
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'static/images',
+        path: path.join(__dirname, 'static', 'images'),
+      },
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-netlify',
   ],
 }

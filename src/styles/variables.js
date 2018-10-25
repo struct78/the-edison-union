@@ -34,6 +34,9 @@ export const colours = {
     title: '#eee',
     text: '#ddd',
     button: '#3a3a3d'
+  },
+  work: {
+    text: '#eee'
   }
 }
 

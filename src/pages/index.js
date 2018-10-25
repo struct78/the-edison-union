@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import Img from "gatsby-image"
+import { StaticQuery, graphql } from 'gatsby'
 
 // CSS
 import { colours, fonts, spacing, timings, typography } from '../styles/variables'
@@ -9,6 +11,30 @@ import { below, above } from '../styles/mixins'
 // Components
 import Layout from '../components/layout'
 import Section from '../components/section'
+
+export const workImage = graphql`
+fragment workImage on File {
+  childImageSharp {
+    fluid(maxWidth: 1024, maxHeight: 1024, quality: 96) {
+      ...GatsbyImageSharpFluid_withWebp
+    }
+  }
+}
+`;
+
+export const query = graphql`
+  query {
+    vivienne:file(relativePath: { eq: "work-vivienne.jpg" }) {
+      ...workImage
+    }
+    faultTrace:file(relativePath: { eq: "work-fault-trace.jpg" }) {
+      ...workImage
+    }
+    hemeshGUI:file(relativePath: { eq: "work-hemesh-gui.jpg" }) {
+      ...workImage
+    }
+  }
+`
 
 function encode(data) {
   return Object.keys(data)
@@ -86,71 +112,79 @@ class IndexPage extends Component {
   }
 
   render() {
-    return (<Layout>
-        <Section variant="default_alternate">
-          <Title variant="default_alternate">The Edison Union</Title>
-        </Section>
-        <Section variant="default">
-          <SubTitle variant="default">What is the Edison Union?</SubTitle>
-          <Copy>The Edison Union is a creative technology collective.
-          We create unforgettable experiences with technology at their core.</Copy>
-        </Section>
-        <Section variant="default_alternate">
-          <SubTitle variant="default_alternate">What do we specialise in?</SubTitle>
-          <Copy>We are not a traditional digital agency or production house &mdash;
-          we are conceptual thinkers, technologists, and problem solvers.
-          Some of our past and present projects include:</Copy>
+    return (<StaticQuery
+      query={query}
+      render={(data) => (
+        <Layout>
+          <Section variant="default_alternate">
+            <Title variant="default_alternate">The Edison Union</Title>
+          </Section>
+          <Section variant="default">
+            <SubTitle variant="default">What is the Edison Union?</SubTitle>
+            <Copy>The Edison Union is a creative technology collective.
+            We create unforgettable experiences with technology at their core.</Copy>
+          </Section>
+          <Section variant="default_alternate">
+            <SubTitle variant="default_alternate">What do we specialise in?</SubTitle>
+            <Copy>We are not a traditional digital agency or production house &mdash;
+            we are conceptual thinkers, technologists, and problem solvers.
+            Some of our past and present projects include:</Copy>
 
-          <List variant="default_alternate">
-            <ListItem>API development</ListItem>
-            <ListItem>Data jewellery</ListItem>
-            <ListItem>Data visualisation & sonification</ListItem>
-            <ListItem>Electronic prototyping</ListItem>
-            <ListItem>Experiential &amp; OOH advertising</ListItem>
-            <ListItem>Interactive windows &ampl installations</ListItem>
-            <ListItem>IOT platforms</ListItem>
-            <ListItem>Projection mapping</ListItem>
-            <ListItem>VX & Chatbots</ListItem>
-          </List>
-        </Section>
-        <Section variant="default">
-          <SubTitle variant="default">Our Philosophy</SubTitle>
-          <Copy>We love technology, but we believe it should always come second to the idea. We are creatives first, engineers second.</Copy>
-        </Section>
-        <Section variant="default_alternate">
-          <SubTitle variant="default_alternate">Contact</SubTitle>
-          <Form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
-            { this.getFormContent() }
-          </Form>
-        </Section>
-        {/*<ImageGrid>
-          <ImageBox>
-            <img src="https://via.placeholder.com/1000x1000"/>
-          </ImageBox>
-          <ImageBox>
-            <img src="https://via.placeholder.com/1000x1000"/>
-          </ImageBox>
-          <ImageBox>
-            <img src="https://via.placeholder.com/1000x1000"/>
-          </ImageBox>
-          <ImageBox>
-            <img src="https://via.placeholder.com/1000x1000"/>
-          </ImageBox>
-          <ImageBox>
-            <img src="https://via.placeholder.com/1000x1000"/>
-          </ImageBox>
-          <ImageBox>
-            <img src="https://via.placeholder.com/1000x1000"/>
-          </ImageBox>
-          <ImageBox>
-            <img src="https://via.placeholder.com/1000x1000"/>
-          </ImageBox>
-          <ImageBox>
-            <img src="https://via.placeholder.com/1000x1000"/>
-          </ImageBox>
-        </ImageGrid>*/}
-      </Layout>
-    )
+            <List variant="default_alternate">
+              <ListItem>API development</ListItem>
+              <ListItem>Creative coding / computer vision</ListItem>
+              <ListItem>Data jewellery</ListItem>
+              <ListItem>Data visualisation & sonification</ListItem>
+              <ListItem>Electronic prototyping</ListItem>
+              <ListItem>Experiential &amp; OOH advertising</ListItem>
+              <ListItem>Interactive windows &amp; installations</ListItem>
+              <ListItem>IOT platforms</ListItem>
+              <ListItem>Light installations</ListItem>
+              <ListItem>Projection mapping</ListItem>
+              <ListItem>VX & Chatbots</ListItem>
+            </List>
+          </Section>
+          <ImageGrid>
+            <ImageBox>
+              <figure>
+                <Img fluid={data.vivienne.childImageSharp.fluid}/>
+                <figcaption>
+                  <strong>Vivienne</strong>
+                  <span>Sound visualisation</span>
+                </figcaption>
+              </figure>
+            </ImageBox>
+            <ImageBox>
+              <figure>
+                <Img fluid={data.faultTrace.childImageSharp.fluid}/>
+                <figcaption>
+                  <strong>Fault Trace</strong>
+                  <span>Data sonification</span>
+                </figcaption>
+              </figure>
+            </ImageBox>
+            <ImageBox>
+              <figure>
+                <Img fluid={data.hemeshGUI.childImageSharp.fluid}/>
+                <figcaption>
+                  <strong>Hemesh GUI</strong>
+                  <span>Software</span>
+                </figcaption>
+              </figure>
+            </ImageBox>
+          </ImageGrid>
+          <Section variant="default">
+            <SubTitle variant="default">Our Philosophy</SubTitle>
+            <Copy>We love technology, but we believe it should always come second to the idea. We are creatives first, engineers second.</Copy>
+          </Section>
+          <Section variant="default_alternate">
+            <SubTitle variant="default_alternate">Contact</SubTitle>
+            <Form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
+              { this.getFormContent() }
+            </Form>
+          </Section>
+        </Layout>)}/>
+    );
   }
 }
 
@@ -205,7 +239,7 @@ const ListItem = styled.li`
   position: relative;
 `
 
-const ImageGrid = styled.div`
+const ImageGrid = styled.section`
   display: grid;
   grid-gap: 1px;
   grid-row-gap: 0;
@@ -213,22 +247,60 @@ const ImageGrid = styled.div`
   line-height: 1;
 
   ${above.sm`
-    grid-template-columns: repeat(2, 1fr);
-  `}
-
-  ${above.md`
     grid-template-columns: repeat(3, 1fr);
   `}
 
-  ${above.lg`
-    grid-template-columns: repeat(4, 1fr);
-  `}
 `
 
 const ImageBox = styled.div`
-  img {
+  figure {
+    position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform ${timings.lg}s ease-in-out !important;
+    }
+
+    figcaption {
+      align-items: center;
+      color: ${colours.work.text};
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      transform: translateY(${spacing.sm});
+      transition: opacity ${timings.lg}s ease-in-out, transform ${timings.lg}s ease-in-out;
+      width: 100%;
+
+      span {
+        margin-top: ${spacing.xs};
+        font-size: 1rem;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      figcaption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      img {
+        transform: scale(1.2);
+      }
+    }
   }
 `
 
