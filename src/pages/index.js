@@ -38,6 +38,15 @@ export const query = graphql`
     hemeshGUI:file(relativePath: { eq: "work-hemesh-gui.jpg" }) {
       ...workImage
     }
+    radiationOrchestra:file(relativePath: { eq: "work-radiation-orchestra.jpg" }) {
+      ...workImage
+    }
+    genesis:file(relativePath: { eq: "work-genesis.png" }) {
+      ...workImage
+    }
+    airPiano:file(relativePath: { eq: "work-air-piano.png" }) {
+      ...workImage
+    }
   }
 `
 

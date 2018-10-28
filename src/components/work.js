@@ -35,6 +35,33 @@ export const Work = ({ data }) => (
         </figcaption>
       </figure>
     </ImageBox>
+    <ImageBox>
+      <figure>
+        <Img fluid={data.radiationOrchestra.childImageSharp.fluid}/>
+        <figcaption>
+          <strong>Radiation Orchestra</strong>
+          <span>Installation</span>
+        </figcaption>
+      </figure>
+    </ImageBox>
+    <ImageBox>
+      <figure>
+        <Img fluid={data.genesis.childImageSharp.fluid}/>
+        <figcaption>
+          <strong>Genesis</strong>
+          <span>Data visualisation</span>
+        </figcaption>
+      </figure>
+    </ImageBox>
+    <ImageBox>
+      <figure>
+        <Img fluid={data.airPiano.childImageSharp.fluid}/>
+        <figcaption className="reversed">
+          <strong>Air Piano</strong>
+          <span>Installation</span>
+        </figcaption>
+      </figure>
+    </ImageBox>
   </ImageGrid>)
 
 
@@ -49,7 +76,6 @@ const ImageGrid = styled.section`
   ${above.sm`
     grid-template-columns: repeat(3, 1fr);
   `}
-
 `
 
 const ImageBox = styled.div`
@@ -87,6 +113,13 @@ const ImageBox = styled.div`
         margin-top: ${spacing.xs};
         font-size: 1rem;
       }
+
+      &.reversed {
+        color: ${colours.work.shadow};
+        &:hover {
+          text-shadow: 1px 1px ${colours.work.text};
+        }
+      }
     }
 
     &:hover,
@@ -95,6 +128,7 @@ const ImageBox = styled.div`
       figcaption {
         opacity: 1;
         transform: translateY(0);
+        text-shadow: 1px 1px ${colours.work.shadow};
       }
 
       img {

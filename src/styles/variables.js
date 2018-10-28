@@ -36,7 +36,8 @@ export const colours = {
     button: '#3a3a3d'
   },
   work: {
-    text: '#eee'
+    text: '#eee',
+    shadow: '#1a1a1d'
   }
 }
 
