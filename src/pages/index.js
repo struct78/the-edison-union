@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Work from '../components/work'
+import { graphql } from 'gatsby'
 
 // CSS
 import { colours, fonts, spacing, timings, typography } from '../styles/variables'

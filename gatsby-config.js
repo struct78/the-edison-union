@@ -20,6 +20,7 @@ module.exports = {
         path: path.join(__dirname, 'static', 'images'),
       },
     },
+    'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-react-helmet',
