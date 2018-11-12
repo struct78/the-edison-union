@@ -49,6 +49,15 @@ export const query = graphql`
     airPiano:file(relativePath: { eq: "work-air-piano.png" }) {
       ...workImage
     }
+    amsterdamToAntwerp:file(relativePath: { eq: "work-amsterdam-to-antwerp.png" }) {
+      ...workImage
+    }
+    structs:file(relativePath: { eq: "work-structs.png" }) {
+      ...workImage
+    }
+    concertoAutomata:file(relativePath: { eq: "work-concerto-automata.png" }) {
+      ...workImage
+    }
   }
 `
 
@@ -264,6 +273,11 @@ const FieldGroup = styled.div`
   button: focus {
     border: 1px solid ${colours.default.text};
     outline: none;
+  }
+
+  button {
+    font-family: ${fonts.title};
+    text-transform: uppercase;
   }
 
   ${below.sm`

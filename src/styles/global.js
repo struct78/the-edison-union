@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import { above } from './mixins'
-import { fonts, timings, typography } from './variables'
+import { fonts, typography } from './variables'
 import fontFiles from './fonts'
 
 export const GlobalStyle = createGlobalStyle`

@@ -37,6 +37,15 @@ export const Work = ({ data }) => (
     </ImageBox>
     <ImageBox>
       <figure>
+        <Img fluid={data.amsterdamToAntwerp.childImageSharp.fluid}/>
+        <figcaption className="reversed">
+          <strong>Amsterdam to Antwerp</strong>
+          <span>Data Jewellery</span>
+        </figcaption>
+      </figure>
+    </ImageBox>
+    <ImageBox>
+      <figure>
         <Img fluid={data.radiationOrchestra.childImageSharp.fluid}/>
         <figcaption>
           <strong>Radiation Orchestra</strong>
@@ -50,6 +59,24 @@ export const Work = ({ data }) => (
         <figcaption>
           <strong>Genesis</strong>
           <span>Data visualisation</span>
+        </figcaption>
+      </figure>
+    </ImageBox>
+    <ImageBox>
+      <figure>
+        <Img fluid={data.structs.childImageSharp.fluid}/>
+        <figcaption className="reversed">
+          <strong>Structs</strong>
+          <span>Generative Art</span>
+        </figcaption>
+      </figure>
+    </ImageBox>
+    <ImageBox>
+      <figure>
+        <Img fluid={data.concertoAutomata.childImageSharp.fluid}/>
+        <figcaption className="reversed">
+          <strong>Concerto Automata</strong>
+          <span>Generative Music</span>
         </figcaption>
       </figure>
     </ImageBox>
@@ -74,24 +101,29 @@ const ImageGrid = styled.section`
   line-height: 1;
 
   ${above.sm`
+    grid-template-columns: repeat(2, 1fr);
+  `}
+
+  ${above.md`
     grid-template-columns: repeat(3, 1fr);
   `}
 `
 
 const ImageBox = styled.div`
   figure {
-    position: relative;
-    width: 100%;
+    background-color: ${colours.work.shadow};
     height: auto;
-    padding: 0;
     margin: 0;
     overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
 
     img {
       display: block;
-      width: 100%;
       height: auto;
-      transition: transform ${timings.lg}s ease-in-out !important;
+      transition: all ${timings.lg}s ease-in-out!important;
+      width: 100%;
     }
 
     figcaption {
@@ -100,12 +132,12 @@ const ImageBox = styled.div`
       display: flex;
       flex-direction: column;
       font-family: 'TT Firs Neue Light';
-      text-transform: uppercase;
       height: 100%;
       justify-content: center;
       left: 0;
       opacity: 0;
       position: absolute;
+      text-transform: uppercase;
       top: 0;
       transform: translateY(${spacing.sm});
       transition: opacity ${timings.lg}s ease-in-out, transform ${timings.lg}s ease-in-out;
@@ -113,6 +145,15 @@ const ImageBox = styled.div`
 
       strong {
         font-size: ${typography.h3};
+        text-align: center;
+
+        ${above.sm`
+          font-size: ${typography.h4};
+        `}
+
+        ${above.xl`
+          font-size: ${typography.h3};
+        `}
       }
 
       span {
@@ -134,11 +175,12 @@ const ImageBox = styled.div`
     &:active {
       figcaption {
         opacity: 1;
-        transform: translateY(0);
         text-shadow: 1px 1px ${colours.work.shadow};
+        transform: translateY(0);
       }
 
       img {
+        filter: blur(.5rem);
         transform: scale(1.2);
       }
     }
