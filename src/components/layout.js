@@ -6,10 +6,6 @@ import { StaticQuery, graphql } from 'gatsby'
 // Styles
 import { GlobalStyle } from '../styles/global.js'
 
-// Components
-//
-//
-
 const Layout = ({ children }) => (
     <StaticQuery
       query={graphql`
@@ -33,19 +29,6 @@ const Layout = ({ children }) => (
         <>
           <Helmet
             title={data.site.siteMetadata.title}
-            script={[{
-              innerHTML: `var WebFontConfig = {
-                google: {
-                  families: ['Raleway:100,400,700', 'Rajdhani:100,400', 'Roboto Slab:100,200,300,400'],
-                }
-              };
-              (function(d) {
-                  var wf = d.createElement('script'), s = d.scripts[0];
-                  wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-                  wf.async = true;
-                  s.parentNode.insertBefore(wf, s);
-               })(document);`
-            }]}
             meta={[
               { name: 'description', content: data.site.siteMetadata.description },
               { name: 'keywords', content: data.site.siteMetadata.keywords },

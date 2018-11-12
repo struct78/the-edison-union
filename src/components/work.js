@@ -99,6 +99,8 @@ const ImageBox = styled.div`
       color: ${colours.work.text};
       display: flex;
       flex-direction: column;
+      font-family: 'TT Firs Neue Light';
+      text-transform: uppercase;
       height: 100%;
       justify-content: center;
       left: 0;
@@ -109,9 +111,14 @@ const ImageBox = styled.div`
       transition: opacity ${timings.lg}s ease-in-out, transform ${timings.lg}s ease-in-out;
       width: 100%;
 
+      strong {
+        font-size: 1.5rem;
+      }
+
       span {
-        margin-top: ${spacing.xs};
+        font-family: 'TT Firs Neue Medium';
         font-size: 1rem;
+        margin-top: ${spacing.xs};
       }
 
       &.reversed {

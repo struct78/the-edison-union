@@ -67,7 +67,7 @@ export const typography = {
 }
 
 export const fonts = {
-  title: "'TT Firs Neue Medium', serif",
-  subtitle: "'TT Firs Neue Light', serif",
-  body: "'Roboto Slab', serif"
+  title: "'TT Firs Neue Medium', sans-serif",
+  subtitle: "'TT Firs Neue Light', sans-serif",
+  body: "Georgia, serif"
 }
