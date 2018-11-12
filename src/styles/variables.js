@@ -67,6 +67,7 @@ export const typography = {
 }
 
 export const fonts = {
-  title: 'Rajdhani, sans-serif',
+  title: "'TT Firs Neue Medium', serif",
+  subtitle: "'TT Firs Neue Light', serif",
   body: "'Roboto Slab', serif"
 }

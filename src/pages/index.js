@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Work from '../components/work'
 import { graphql } from 'gatsby'
+
+import Work from '../components/work'
+import Heading from '../components/heading'
 
 // CSS
 import { colours, fonts, spacing, timings, typography } from '../styles/variables'
@@ -124,15 +126,15 @@ class IndexPage extends Component {
     return (
         <Layout>
           <Section variant="default_alternate">
-            <Title variant="default_alternate">The Edison Union</Title>
+            <Heading><Title variant="default_alternate">The Edison Union</Title></Heading>
           </Section>
           <Section variant="default">
-            <SubTitle variant="default">What is the Edison Union?</SubTitle>
+            <Heading><SubTitle variant="default">What is the Edison Union?</SubTitle></Heading>
             <Copy>The Edison Union is a creative technology collective.
             We create unforgettable experiences with technology at their core.</Copy>
           </Section>
           <Section variant="default_alternate">
-            <SubTitle variant="default_alternate">What do we specialise in?</SubTitle>
+            <Heading><SubTitle variant="default_alternate">What do we specialise in?</SubTitle></Heading>
             <Copy>We are not a traditional digital agency or production house &mdash;
             we are conceptual thinkers, technologists, and problem solvers.
             Some of our past and present projects include:</Copy>
@@ -153,11 +155,11 @@ class IndexPage extends Component {
           </Section>
           <Work {...this.props}/>
           <Section variant="default">
-            <SubTitle variant="default">Our Philosophy</SubTitle>
+            <Heading><SubTitle variant="default">Our Philosophy</SubTitle></Heading>
             <Copy>We love technology, but we believe it should always come second to the idea. We are creatives first, engineers second.</Copy>
           </Section>
           <Section variant="default_alternate">
-            <SubTitle variant="default_alternate">Contact</SubTitle>
+            <Heading><SubTitle variant="default_alternate">Contact</SubTitle></Heading>
             <Form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
               { this.getFormContent() }
             </Form>
@@ -171,13 +173,13 @@ const Title = styled.h1`
   color: ${props => colours[props.variant].title};
   font-family: ${fonts.title};
   font-size: ${typography.h1};
-  font-weight: 100;
+  font-weight: 500;
   text-transform: uppercase;
 `
 
 const SubTitle = styled.h2`
   color: ${props => colours[props.variant].title};
-  font-family: ${fonts.title};
+  font-family: ${fonts.subtitle};
   font-size: ${typography.h2};
   font-weight: 100;
   text-transform: uppercase;

@@ -36,7 +36,7 @@ const Layout = ({ children }) => (
             script={[{
               innerHTML: `var WebFontConfig = {
                 google: {
-                  families: ['Rajdhani:100,400', 'Roboto Slab:100,200,300,400'],
+                  families: ['Raleway:100,400,700', 'Rajdhani:100,400', 'Roboto Slab:100,200,300,400'],
                 }
               };
               (function(d) {
