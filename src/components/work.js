@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 
 // CSS
-import { colours, spacing, timings } from '../styles/variables'
+import { colours, spacing, timings, typography } from '../styles/variables'
 import { above } from '../styles/mixins'
 
 export const Work = ({ data }) => (
@@ -112,7 +112,7 @@ const ImageBox = styled.div`
       width: 100%;
 
       strong {
-        font-size: 1.5rem;
+        font-size: ${typography.h3};
       }
 
       span {
