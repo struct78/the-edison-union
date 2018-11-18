@@ -51,6 +51,7 @@ const Layout = ({ children }) => (
             ]}
           >
             <html lang="en" />
+            <link rel="canonical" href="https://edisonunion.co/" />
           </Helmet>
           <GlobalStyle/>
           <div>
