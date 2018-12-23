@@ -56,6 +56,10 @@ class ContactForm extends Component {
       return (
       <Form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
         <FieldSet>
+          <FieldGroup className="hidden">
+            <label htmlFor="bang" id="message-bang">Title</label>
+            <Input type="text" id="bang" aria-labelledby="message-bang" name="bang" required onChange={this.handleChange} />
+          </FieldGroup>
           <FieldGroup>
             <label htmlFor="name" id="message-name">Name</label>
             <Input type="text" id="name" aria-labelledby="message-name" name="name" required onChange={this.handleChange} />
@@ -109,6 +113,10 @@ const FieldSet = styled.div`
 const FieldGroup = styled.div`
   display: flex;
   flex-direction: column;
+
+  &.hidden {
+    display: none;
+  }
 
   &.field-group--full {
     grid-column: 1 / 3;
