@@ -54,11 +54,11 @@ class ContactForm extends Component {
     }
     else {
       return (
-      <Form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="bang" onSubmit={this.handleSubmit}>
+      <Form name="Contact Form" action="/" data-netlify="true" data-netlify-honeypot="title" onSubmit={this.handleSubmit}>
         <FieldSet>
           <FieldGroup className="hidden">
-            <label htmlFor="bang" id="message-bang">Title</label>
-            <Input type="text" id="bang" aria-labelledby="message-bang" name="bang" required onChange={this.handleChange} />
+            <label htmlFor="title" id="message-title">Title</label>
+            <Input type="text" id="title" aria-labelledby="message-title" name="title" required onChange={this.handleChange} />
           </FieldGroup>
           <FieldGroup>
             <label htmlFor="name" id="message-name">Name</label>
