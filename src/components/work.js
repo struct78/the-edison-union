@@ -10,6 +10,15 @@ export const Work = ({ data }) => (
   <ImageGrid>
     <ImageBox>
       <figure>
+        <Img fluid={data.catmullClark.childImageSharp.fluid}/>
+        <figcaption>
+          <strong>Catmull-Clark</strong>
+          <span>3D Model</span>
+        </figcaption>
+      </figure>
+    </ImageBox>
+    <ImageBox>
+      <figure>
         <Img fluid={data.vivienne.childImageSharp.fluid}/>
         <figcaption>
           <strong>Vivienne</strong>
@@ -37,9 +46,18 @@ export const Work = ({ data }) => (
     </ImageBox>
     <ImageBox>
       <figure>
+        <Img fluid={data.siliconBlock.childImageSharp.fluid}/>
+        <figcaption className="reversed">
+          <strong>Silicon Block</strong>
+          <span>Live Audio Visualisation</span>
+        </figcaption>
+      </figure>
+    </ImageBox>
+    <ImageBox>
+      <figure>
         <Img fluid={data.amsterdamToAntwerp.childImageSharp.fluid}/>
         <figcaption className="reversed">
-          <strong>Amsterdam to Antwerp</strong>
+          <strong>Ring</strong>
           <span>Data Jewellery</span>
         </figcaption>
       </figure>
@@ -59,6 +77,15 @@ export const Work = ({ data }) => (
         <figcaption>
           <strong>Genesis</strong>
           <span>Data visualisation</span>
+        </figcaption>
+      </figure>
+    </ImageBox>
+    <ImageBox>
+      <figure>
+        <Img fluid={data.droneStrikeCuff.childImageSharp.fluid}/>
+        <figcaption className="reversed">
+          <strong>Drone Strike Cuff</strong>
+          <span>Data Jewellery</span>
         </figcaption>
       </figure>
     </ImageBox>
