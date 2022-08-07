@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class Heading extends Component {
   innerRef = React.createRef();
-  underlineCharacters = ['E', 'U'];
+  underlineCharacters = ['E', 'U', 'e', 'u'];
 
   componentDidMount() {
     if (typeof HTMLCollection.prototype.forEach === "undefined") {

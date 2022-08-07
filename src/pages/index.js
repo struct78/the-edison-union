@@ -84,17 +84,13 @@ class IndexPage extends Component {
             Some of our past and present projects include:</Copy>
 
             <List variant="default_alternate">
-              <ListItem>API development</ListItem>
               <ListItem>Data jewellery</ListItem>
               <ListItem>Data visualisation & sonification</ListItem>
               <ListItem>Electronic prototyping</ListItem>
-              <ListItem>Experiential &amp; OOH advertising</ListItem>
               <ListItem>Generative art</ListItem>
               <ListItem>Interactive windows &amp; installations</ListItem>
-              <ListItem>IOT platforms</ListItem>
               <ListItem>Light installations</ListItem>
               <ListItem>Projection mapping</ListItem>
-              <ListItem>VX & Chatbots</ListItem>
             </List>
           </Section>
           <Work {...this.props}/>
@@ -103,7 +99,7 @@ class IndexPage extends Component {
             <Copy>We love technology, but we believe it should always come second to the idea. We are creatives first, engineers second.</Copy>
           </Section>
           <Section variant="default_alternate">
-            <Heading><SubTitle variant="default_alternate">Contact</SubTitle></Heading>
+            <Heading><SubTitle variant="default_alternate">Contact Us</SubTitle></Heading>
             <ContactForm/>
           </Section>
         </Layout>
