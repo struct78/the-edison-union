@@ -26,12 +26,6 @@ fragment workImage on File {
 
 export const query = graphql`
   query {
-    siliconBlock:file(relativePath: { eq: "work-silicon-block.jpg" }) {
-      ...workImage
-    }
-    catmullClark:file(relativePath: { eq: "work-catmull-clark.png" }) {
-      ...workImage
-    }
     vivienne:file(relativePath: { eq: "work-vivienne.jpg" }) {
       ...workImage
     }
@@ -39,9 +33,6 @@ export const query = graphql`
       ...workImage
     }
     hemeshGUI:file(relativePath: { eq: "work-hemesh-gui.jpg" }) {
-      ...workImage
-    }
-    droneStrikeCuff:file(relativePath: { eq: "work-drone-strike-cuff.jpg" }) {
       ...workImage
     }
     radiationOrchestra:file(relativePath: { eq: "work-radiation-orchestra.jpg" }) {
